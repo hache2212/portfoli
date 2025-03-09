@@ -1,0 +1,85 @@
+---
+const projects = [
+  {
+    title: "FootFlex",
+    description:
+      "Desenvolupament d'un sistema d'ecommerce per a una botiga de sabates, utilitzant Java amb SpringBoot i Bootstrap. Botiga online + ERP",
+    image: "/images/footflex.png",
+    tags: ["Java", "Springboot", "Bootstrap", "MySQL", "Figma", "HTML"],
+    githubUrl: "https://github.com/hache2212/footflex",
+  },
+  {
+    title: "MushTool",
+    description:
+      "Aplicació mòbil per a la identificació i emmagatzematge de bolets amb els teus amics en temps real, desenvolupada amb Android Studio utilitzant Kotlin",
+    image: "/images/mushtool.png",
+    tags: ["Kotlin", "Firebase", "Android Studio"],
+    githubUrl: "https://github.com/hache2212/mushtool",
+  },
+  {
+    title: "BidNow",
+    description:
+      "Plataforma web que digitalitza la gestió de subhastes físiques de petit format, facilitant la interacció entre compradors, venedors i subhastadors. Permet explorar productes, gestionar sessions i controlar pagaments d’una manera senzilla i eficient.",
+    image: "/images/bidnow.png",
+    tags: ["PHP", "JavaScript", "VS Code", "MySQL", "HTML", "CSS"],
+    githubUrl: "https://github.com/hache2212/casasubhastes",
+  },
+  {
+    title: "Rooming",
+    description:
+      "Desenvolupament d’un sistema de gestió integral per a una cadena hotelera, dissenyat per optimitzar les operacions internes dels hotels i oferir una experiència fluida als clients que fan reserves en línia.",
+    image: "/images/rooming.png",
+    tags: ["Laravel", "PHP", "JavaScript", "Vue.js", "Docker", "AWS", "HTML", "SASS", "Figma"],
+    githubUrl: "https://github.com/hache2212/gestiohotelera",
+  },
+];
+---
+
+<section id="projects" class="py-20 bg-gray-950">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-center mb-12">Projectes Rellevants</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {
+        projects.map((project) => (
+          <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-[1.02]">
+            <div class="relative">
+              <img
+                src={project.image || "/placeholder.svg"}
+                alt={project.title}
+                class="w-full h-48 object-cover"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end">
+                <div class="p-4 w-full">
+                  <div class="flex justify-between">
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="px-3 py-1 bg-purple-600 text-white text-sm rounded-md hover:bg-purple-700 transition-colors"
+                    >
+                      GitHub
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">{project.title}</h3>
+              <p class="text-gray-300 mb-4">{project.description}</p>
+
+              <div class="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span class="px-2 py-1 bg-gray-700 text-gray-200 text-xs rounded-md">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

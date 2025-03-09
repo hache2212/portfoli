@@ -1,0 +1,164 @@
+---
+import { Github, Linkedin, Mail, Menu, X } from "lucide-react";
+---
+
+<header
+  class="fixed top-0 w-full bg-gray-950/80 backdrop-blur-sm z-50 border-b border-gray-800"
+>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <div class="flex-shrink-0">
+        <a class="text-xl font-bold">Hugo Romero</a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button
+          id="menu-toggle"
+          class="text-gray-400 hover:text-gray-200 focus:outline-none"
+        >
+          <span class="sr-only">Open menu</span>
+          <Menu id="menu-icon" />
+          <!-- Ícono de hamburguesa (visible inicialmente) -->
+          <X id="close-icon" />
+          <!-- Ícono de cruz (oculto inicialmente) -->
+        </button>
+      </div>
+
+      <!-- Desktop navigation -->
+      <nav class="hidden md:flex space-x-8">
+        <a href="#about" class="text-white hover:text-gray-300">Sobre mi</a>
+        <a href="#experience" class="text-white hover:text-gray-300"
+          >Experiència</a
+        >
+        <a href="#projects" class="text-white hover:text-gray-300">Projectes</a>
+        <a href="#skills" class="text-white hover:text-gray-300">Skills</a>
+        <a href="#education" class="text-white hover:text-gray-300">Educació</a>
+      </nav>
+
+      <!-- Social links -->
+      <div class="hidden md:flex items-center space-x-4">
+        <a
+          href="https://github.com/hache2212"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-gray-400 hover:text-gray-200"
+        >
+          <span class="sr-only">GitHub</span>
+          <Github />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/hugo-romero-domenech-b5277a257/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-gray-400 hover:text-gray-200"
+        >
+          <span class="sr-only">LinkedIn</span>
+          <Linkedin />
+        </a>
+        <a
+          href="mailto:hrdomenech@gmail.com"
+          class="text-gray-400 hover:text-white"
+        >
+          <span class="sr-only">Email</span>
+          <Mail />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden">
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-800">
+      <a
+        href="#about"
+        class="block px-3 py-2 text-white hover:bg-gray-800 rounded-md"
+        >Sobre mi</a
+      >
+      <a
+        href="#experience"
+        class="block px-3 py-2 text-white hover:bg-gray-800 rounded-md"
+        >Experiència</a
+      >
+      <a
+        href="#projects"
+        class="block px-3 py-2 text-white hover:bg-gray-800 rounded-md"
+        >Projectes</a
+      >
+      <a
+        href="#skills"
+        class="block px-3 py-2 text-white hover:bg-gray-800 rounded-md"
+        >Skills</a
+      >
+      <a
+        href="#education"
+        class="block px-3 py-2 text-white hover:bg-gray-800 rounded-md"
+        >Educació</a
+      >
+    </div>
+    <div class="pt-4 pb-3 border-t border-gray-800">
+      <div class="flex items-center justify-center space-x-6 px-5">
+        <a
+          href="https://github.com/hache2212"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-gray-400 hover:text-gray-200"
+        >
+          <span class="sr-only">Github</span>
+          <Github />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/hugo-romero-domenech-b5277a257/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-gray-400 hover:text-gray-200"
+        >
+          <span class="sr-only">LinkedIn</span>
+          <Linkedin />
+        </a>
+        <a
+          href="mailto:hrdomenech@gmail.com"
+          class="text-gray-400 hover:text-white"
+        >
+          <span class="sr-only">Email</span>
+          <Mail />
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Asegurar que el código se ejecute después de que el DOM esté completamente cargado
+  document.addEventListener("DOMContentLoaded", () => {
+    // Toggle mobile menu
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuIcon = document.getElementById("menu-icon");
+    const closeIcon = document.getElementById("close-icon");
+
+    if (menuToggle && mobileMenu && menuIcon && closeIcon) {
+      // Asegurar el estado inicial correcto
+      mobileMenu.classList.add("hidden"); // Menú cerrado inicialmente
+      menuIcon.classList.remove("hidden"); // Hamburguesa visible
+      closeIcon.classList.add("hidden"); // Cruz oculta
+
+      // Alternar menú al hacer clic en el botón
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        menuIcon.classList.toggle("hidden");
+        closeIcon.classList.toggle("hidden");
+      });
+
+      // Cerrar el menú al hacer clic en un enlace
+      const mobileLinks = document.querySelectorAll("#mobile-menu a");
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+          menuIcon.classList.remove("hidden");
+          closeIcon.classList.add("hidden");
+        });
+      });
+    }
+  });
+</script>

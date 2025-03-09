@@ -1,0 +1,82 @@
+---
+const experiences = [
+  {
+    title: "Becari (Pràctiques DUAL de CFGS DAM, +900h)",
+    company: "Circontrol S.A.",
+    location: "Viladecavalls, Barcelona",
+    period: "2023 - 2024",
+    description: [
+      "Desenvolupament d'aplicacions internes per a optimitzar el treball de l'equip del departament",
+      "Manteniment i millora d'aplicacions destinades a producció",
+      "Asistència tècnica a línia de producció",
+    ],
+    technologies: ["C#", "VisualBasic", "SQL Server", "Visual Studio"]
+  },
+  {
+    title: "Becari (Pràctiques de CFGS DAW)",
+    company: "Santandreu Consultors",
+    location: "Sabadell, Barcelona",
+    period: "2025",
+    description: [
+      "Aplicació web privada en desenvolupament",
+    ],
+    technologies: ["PHP", "Laravel", "JavaScript", "Tailwind CSS", "Docker", "VS Code", "React", "MySQL", "Hostinger"]
+  },
+];
+---
+
+<section id="experience" class="py-20 bg-gray-900">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12">Experiència professional</h2>
+      
+      <div class="relative space-y-8">
+        {experiences.map((job, index) => (
+          <div class="bg-gray-800 rounded-lg p-6 shadow-lg relative">
+            {/* Timeline dot and line */}
+            {index < experiences.length - 1 && (
+              <div class="absolute left-1/2 -bottom-8 -ml-0.5 w-0.5 h-8 bg-gray-700"></div>
+            )}
+            
+            <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+              <div>
+                <h3 class="text-xl font-bold text-white">{job.title}</h3>
+                <p class="text-purple-400 font-medium">{job.company}</p>
+                <p class="text-gray-400">{job.location}</p>
+              </div>
+              <div class="mt-2 md:mt-0">
+                <span class="inline-block bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm">
+                  {job.period}
+                </span>
+              </div>
+            </div>
+            
+            <div class="mb-4">
+              <h4 class="text-sm font-semibold text-gray-200 mb-2">Tasques Realitzades</h4>
+              <ul class="space-y-1 text-gray-300">
+                {job.description.map((description) => (
+                  <li class="flex items-start">
+                    <span class="text-purple-400 mr-2">•</span>
+                    <span>{description}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            <div>
+              <h4 class="text-sm font-semibold text-gray-200 mb-2">Tecnologies Utilitzades</h4>
+              <div class="flex flex-wrap gap-2">
+                {job.technologies.map((tech) => (
+                  <span class="px-2 py-1 bg-gray-700 text-gray-200 text-xs rounded-md">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
