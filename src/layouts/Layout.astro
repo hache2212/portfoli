@@ -17,6 +17,14 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+
+		<!-- Open Graph Meta Tags -->
+    	<meta property="og:title" content={title} />
+    	<meta property="og:description" content="Descubre mi trabajo y experiencia en desarrollo web y aplicaciones." />
+    	<meta property="og:image" content="https://portfoli-hugo.vercel.app/images/imagenMiniatura.png" />
+    	<meta property="og:url" content="https://portfoli-hugo.vercel.app" />
+    	<meta property="og:type" content="website" />
+
 		<ViewTransitions />
 	</head>
 	<body>
